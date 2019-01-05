@@ -1,0 +1,326 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        01/05/2019  11:57:23  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+F:\KEIL\C51\BIN\BL51.EXE WaveformProgramInKeil.obj TO WaveformProgramInKeil
+
+
+MEMORY MODEL: LARGE
+
+
+INPUT MODULES INCLUDED:
+  WaveformProgramInKeil.obj (WAVEFORMPROGRAMINKEIL)
+  F:\KEIL\C51\LIB\C51L.LIB (?C_STARTUP)
+  F:\KEIL\C51\LIB\C51L.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  WaveformProgramInKeil (WAVEFORMPROGRAMINKEIL)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *  X D A T A   M E M O R Y  * * * * * * *
+            XDATA   0000H     080BH     UNIT         ?XD?WAVEFORMPROGRAMINKEIL
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     0008H                  *** GAP ***
+            CODE    000BH     0003H     ABSOLUTE     
+            CODE    000EH     081BH     UNIT         ?C_INITSEG
+            CODE    0829H     01B2H     UNIT         ?PR?KEYSCAN?WAVEFORMPROGRAMINKEIL
+            CODE    09DBH     00A1H     UNIT         ?PR?TIMER0_INT?WAVEFORMPROGRAMINKEIL
+            CODE    0A7CH     008CH     UNIT         ?C_C51STARTUP
+            CODE    0B08H     0022H     UNIT         ?PR?_DELAYMS?WAVEFORMPROGRAMINKEIL
+            CODE    0B2AH     0017H     UNIT         ?PR?TMER0_INIT?WAVEFORMPROGRAMINKEIL
+            CODE    0B41H     000FH     UNIT         ?PR?MAIN?WAVEFORMPROGRAMINKEIL
+
+
+
+OVERLAY MAP OF MODULE:   WaveformProgramInKeil (WAVEFORMPROGRAMINKEIL)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?WAVEFORMPROGRAMINKEIL
+  +--> ?C_INITSEG
+
+?PR?MAIN?WAVEFORMPROGRAMINKEIL
+  +--> ?PR?KEYSCAN?WAVEFORMPROGRAMINKEIL
+
+?PR?KEYSCAN?WAVEFORMPROGRAMINKEIL
+  +--> ?PR?_DELAYMS?WAVEFORMPROGRAMINKEIL
+
+
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/05/2019  11:57:23  PAGE 2
+
+
+UNRESOLVED EXTERNAL SYMBOLS:
+   FRE
+   TIMER0_INIT
+
+
+
+SYMBOL TABLE OF MODULE:  WaveformProgramInKeil (WAVEFORMPROGRAMINKEIL)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        WAVEFORMPROGRAMINKEIL
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  B:00B0H.3       PUBLIC        key4
+  B:00B0H.4       PUBLIC        key5
+  D:0090H         PUBLIC        P1
+  X:0000H         PUBLIC        fbtab
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  X:0200H         PUBLIC        sintab
+  B:00A8H.7       PUBLIC        EA
+  X:0400H         PUBLIC        jctab
+  X:0600H         PUBLIC        boxing
+  X:0602H         PUBLIC        sjtab
+  C:0B41H         PUBLIC        main
+  D:0089H         PUBLIC        TMOD
+  C:09DBH         PUBLIC        Timer0_Int
+  C:0B2AH         PUBLIC        Tmer0_Init
+  X:0802H         PUBLIC        pin
+  B:00A8H.1       PUBLIC        ET0
+  D:008CH         PUBLIC        TH0
+  D:008AH         PUBLIC        TL0
+  B:0088H.4       PUBLIC        TR0
+  X:0804H         PUBLIC        i
+  X:0805H         PUBLIC        n
+  X:0807H         PUBLIC        p
+  C:0829H         PUBLIC        keyscan
+  X:0809H         PUBLIC        s
+  C:0B0CH         PUBLIC        _delayms
+  B:00B0H.0       PUBLIC        key1
+  B:00B0H.1       PUBLIC        key2
+  B:00B0H.2       PUBLIC        key3
+  C:0B08H         SYMBOL        L?0049
+  -------         PROC          L?0048
+  -------         ENDPROC       L?0048
+  C:0B08H         SYMBOL        L?0049
+  -------         PROC          _DELAYMS
+  D:0006H         SYMBOL        x
+  -------         DO            
+  D:0006H         SYMBOL        i
+  D:0004H         SYMBOL        j
+  -------         ENDDO         
+  C:0B0CH         LINE#         15
+  C:0B0CH         LINE#         17
+  C:0B15H         LINE#         18
+  C:0B22H         LINE#         19
+  C:0B29H         LINE#         20
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/05/2019  11:57:23  PAGE 3
+
+
+  -------         ENDPROC       _DELAYMS
+  -------         PROC          KEYSCAN
+  C:0829H         LINE#         22
+  C:0829H         LINE#         23
+  C:082FH         LINE#         24
+  C:0837H         LINE#         25
+  C:083EH         LINE#         26
+  C:083EH         LINE#         27
+  C:0844H         LINE#         28
+  C:0847H         LINE#         29
+  C:084DH         LINE#         30
+  C:0856H         LINE#         31
+  C:085DH         LINE#         32
+  C:085DH         LINE#         33
+  C:085DH         LINE#         34
+  C:0863H         LINE#         35
+  C:0866H         LINE#         36
+  C:086CH         LINE#         37
+  C:0875H         LINE#         38
+  C:087CH         LINE#         39
+  C:087CH         LINE#         40
+  C:087CH         LINE#         41
+  C:0882H         LINE#         42
+  C:0885H         LINE#         43
+  C:088BH         LINE#         44
+  C:0894H         LINE#         45
+  C:089BH         LINE#         46
+  C:089BH         LINE#         47
+  C:089BH         LINE#         48
+  C:08A4H         LINE#         49
+  C:08A7H         LINE#         50
+  C:08B0H         LINE#         51
+  C:08BAH         LINE#         52
+  C:08C2H         LINE#         53
+  C:08C2H         LINE#         54
+  C:08C2H         LINE#         56
+  C:08CBH         LINE#         57
+  C:08CEH         LINE#         58
+  C:08D7H         LINE#         59
+  C:08E1H         LINE#         60
+  C:08EAH         LINE#         61
+  C:08EAH         LINE#         62
+  C:08EAH         LINE#         64
+  C:08F3H         LINE#         65
+  C:08F6H         LINE#         66
+  C:08FFH         LINE#         67
+  C:0909H         LINE#         68
+  C:0912H         LINE#         69
+  C:0912H         LINE#         70
+  C:0912H         LINE#         72
+  C:091BH         LINE#         73
+  C:091EH         LINE#         74
+  C:0927H         LINE#         75
+  C:0931H         LINE#         76
+  C:093AH         LINE#         77
+  C:093AH         LINE#         78
+  C:093AH         LINE#         80
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/05/2019  11:57:23  PAGE 4
+
+
+  C:0943H         LINE#         81
+  C:0946H         LINE#         82
+  C:094FH         LINE#         83
+  C:0959H         LINE#         84
+  C:0962H         LINE#         85
+  C:0962H         LINE#         86
+  C:0962H         LINE#         88
+  C:096BH         LINE#         89
+  C:096EH         LINE#         90
+  C:0977H         LINE#         91
+  C:0981H         LINE#         92
+  C:098AH         LINE#         93
+  C:098AH         LINE#         94
+  C:098AH         LINE#         96
+  C:0993H         LINE#         97
+  C:0996H         LINE#         98
+  C:099FH         LINE#         99
+  C:09A9H         LINE#         100
+  C:09B2H         LINE#         101
+  C:09B2H         LINE#         102
+  C:09B2H         LINE#         104
+  C:09BBH         LINE#         105
+  C:09BEH         LINE#         106
+  C:09C7H         LINE#         107
+  C:09D1H         LINE#         108
+  C:09DAH         LINE#         109
+  C:09DAH         LINE#         110
+  C:09DAH         LINE#         111
+  -------         ENDPROC       KEYSCAN
+  -------         PROC          MAIN
+  C:0B41H         LINE#         113
+  C:0B41H         LINE#         114
+  C:0B48H         LINE#         115
+  C:0B4BH         LINE#         116
+  C:0B4BH         LINE#         117
+  C:0B4EH         LINE#         118
+  -------         ENDPROC       MAIN
+  -------         PROC          TMER0_INIT
+  C:0B2AH         LINE#         213
+  C:0B2AH         LINE#         214
+  C:0B2DH         LINE#         215
+  C:0B38H         LINE#         216
+  C:0B3AH         LINE#         217
+  C:0B3CH         LINE#         218
+  C:0B3EH         LINE#         219
+  C:0B40H         LINE#         220
+  -------         ENDPROC       TMER0_INIT
+  -------         PROC          TIMER0_INT
+  C:09DBH         LINE#         222
+  C:09F0H         LINE#         223
+  C:09FBH         LINE#         224
+  C:09FDH         LINE#         225
+  C:0A03H         LINE#         226
+  C:0A1DH         LINE#         227
+  C:0A1DH         LINE#         228
+  C:0A2FH         LINE#         229
+  C:0A2FH         LINE#         230
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/05/2019  11:57:23  PAGE 5
+
+
+  C:0A41H         LINE#         231
+  C:0A41H         LINE#         232
+  C:0A53H         LINE#         233
+  C:0A53H         LINE#         234
+  C:0A69H         LINE#         235
+  C:0A69H         LINE#         236
+  C:0A69H         LINE#         237
+  C:0A69H         LINE#         238
+  -------         ENDPROC       TIMER0_INT
+  -------         ENDMOD        WAVEFORMPROGRAMINKEIL
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TMER0_INIT?WAVEFORMPROGRAMINKEIL
+
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  TIMER0_INIT
+    MODULE:  WaveformProgramInKeil.obj (WAVEFORMPROGRAMINKEIL)
+
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  FRE
+    MODULE:  WaveformProgramInKeil.obj (WAVEFORMPROGRAMINKEIL)
+
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  FRE
+    MODULE:  WaveformProgramInKeil.obj (WAVEFORMPROGRAMINKEIL)
+    ADDRESS: 08B1H
+
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  FRE
+    MODULE:  WaveformProgramInKeil.obj (WAVEFORMPROGRAMINKEIL)
+    ADDRESS: 08D8H
+
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  FRE
+    MODULE:  WaveformProgramInKeil.obj (WAVEFORMPROGRAMINKEIL)
+    ADDRESS: 0900H
+
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  FRE
+    MODULE:  WaveformProgramInKeil.obj (WAVEFORMPROGRAMINKEIL)
+    ADDRESS: 0928H
+
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  FRE
+    MODULE:  WaveformProgramInKeil.obj (WAVEFORMPROGRAMINKEIL)
+    ADDRESS: 0950H
+
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  FRE
+    MODULE:  WaveformProgramInKeil.obj (WAVEFORMPROGRAMINKEIL)
+    ADDRESS: 0978H
+
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  FRE
+    MODULE:  WaveformProgramInKeil.obj (WAVEFORMPROGRAMINKEIL)
+    ADDRESS: 09A0H
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/05/2019  11:57:23  PAGE 6
+
+
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  FRE
+    MODULE:  WaveformProgramInKeil.obj (WAVEFORMPROGRAMINKEIL)
+    ADDRESS: 09C8H
+
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  TIMER0_INIT
+    MODULE:  WaveformProgramInKeil.obj (WAVEFORMPROGRAMINKEIL)
+    ADDRESS: 0B49H
+
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  FRE
+    MODULE:  WaveformProgramInKeil.obj (WAVEFORMPROGRAMINKEIL)
+    ADDRESS: 0B2EH
+
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  FRE
+    MODULE:  WaveformProgramInKeil.obj (WAVEFORMPROGRAMINKEIL)
+    ADDRESS: 09F1H
+
+Program Size: data=9.0 xdata=2059 code=2888
+LINK/LOCATE RUN COMPLETE.  14 WARNING(S),  0 ERROR(S)
