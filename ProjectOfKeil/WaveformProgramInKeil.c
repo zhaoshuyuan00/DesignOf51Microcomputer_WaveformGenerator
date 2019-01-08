@@ -3,7 +3,7 @@
 #include "timer.h"
 #define uint unsigned int;
 #define uchar unsigned char;
-//8个独立按键 1-4是4种波形选择 5-7变频按键
+//8?????,1-4????,5-7????
 sbit key1 = P3^0;
 sbit key2 = P3^1;
 sbit key3 = P3^2;
@@ -11,14 +11,14 @@ sbit key4 = P3^3;
 sbit key5 = P3^4;
 //sbit key6 = P3^5;
 //sbit led1 = P3^7;
-/*延时程序，延时x毫秒*/
+/*????*/
 void delayms(unsigned int x){
 	unsigned int i,j;
 	for(i=x;i>0;i--){
 		for(j = 110; j > 0;j--);
 	}
 }
-/*按键读取*/
+/*????*/
 void keyscan(){
 	if(key1 == 0&&key2 == 0){
 		boxing = 1;
@@ -109,15 +109,17 @@ void keyscan(){
 		}
 	}
 }
-/*主程序*/
+
+/*???*/
 void main(){
-	n = 0;
-	Timer0_Init();
+	n = 0;//?????
+	Timer0_Init();//?????
 	while(1){
 		keyscan();
 	}
 }
-/*中断程序*/
+
+/*????*/
 sbit led = P2^0;
 unsigned char i;
 unsigned int boxing = 1,pin = 10;
@@ -210,7 +212,14 @@ fbtab[256]={0x00,0x00,0x00,0x00,0x00,0x00,0x00,
 0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,
 0xff,0xff,};
 
-void Tmer0_Init(void){
+void Timer0_Init(void){
+	//0000 0001
+	/*???1
+	  0?????TR0?TR1??????/??????
+	  0????  00??0,13????*/
+	/*???0
+	  0?????TR0?TR1??????/??????
+	  0????  01??1,16????*/
 	TMOD = 0x01;
 	TH0 = FRE/256;
 	TL0 = FRE-256*TH0;

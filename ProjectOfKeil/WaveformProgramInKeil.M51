@@ -1,4 +1,4 @@
-BL51 BANKED LINKER/LOCATER V6.22                                                        01/05/2019  11:57:23  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22                                                        01/08/2019  21:24:52  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
@@ -36,7 +36,7 @@ LINK MAP OF MODULE:  WaveformProgramInKeil (WAVEFORMPROGRAMINKEIL)
             CODE    09DBH     00A1H     UNIT         ?PR?TIMER0_INT?WAVEFORMPROGRAMINKEIL
             CODE    0A7CH     008CH     UNIT         ?C_C51STARTUP
             CODE    0B08H     0022H     UNIT         ?PR?_DELAYMS?WAVEFORMPROGRAMINKEIL
-            CODE    0B2AH     0017H     UNIT         ?PR?TMER0_INIT?WAVEFORMPROGRAMINKEIL
+            CODE    0B2AH     0017H     UNIT         ?PR?TIMER0_INIT?WAVEFORMPROGRAMINKEIL
             CODE    0B41H     000FH     UNIT         ?PR?MAIN?WAVEFORMPROGRAMINKEIL
 
 
@@ -52,19 +52,19 @@ SEGMENT
   +--> ?C_INITSEG
 
 ?PR?MAIN?WAVEFORMPROGRAMINKEIL
+  +--> ?PR?TIMER0_INIT?WAVEFORMPROGRAMINKEIL
   +--> ?PR?KEYSCAN?WAVEFORMPROGRAMINKEIL
 
 ?PR?KEYSCAN?WAVEFORMPROGRAMINKEIL
   +--> ?PR?_DELAYMS?WAVEFORMPROGRAMINKEIL
 
 
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/08/2019  21:24:52  PAGE 2
 
-BL51 BANKED LINKER/LOCATER V6.22                                                      01/05/2019  11:57:23  PAGE 2
 
 
 UNRESOLVED EXTERNAL SYMBOLS:
    FRE
-   TIMER0_INIT
 
 
 
@@ -87,9 +87,9 @@ SYMBOL TABLE OF MODULE:  WaveformProgramInKeil (WAVEFORMPROGRAMINKEIL)
   X:0600H         PUBLIC        boxing
   X:0602H         PUBLIC        sjtab
   C:0B41H         PUBLIC        main
+  C:0B2AH         PUBLIC        Timer0_Init
   D:0089H         PUBLIC        TMOD
   C:09DBH         PUBLIC        Timer0_Int
-  C:0B2AH         PUBLIC        Tmer0_Init
   X:0802H         PUBLIC        pin
   B:00A8H.1       PUBLIC        ET0
   D:008CH         PUBLIC        TH0
@@ -119,7 +119,7 @@ SYMBOL TABLE OF MODULE:  WaveformProgramInKeil (WAVEFORMPROGRAMINKEIL)
   C:0B15H         LINE#         18
   C:0B22H         LINE#         19
   C:0B29H         LINE#         20
-BL51 BANKED LINKER/LOCATER V6.22                                                      01/05/2019  11:57:23  PAGE 3
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/08/2019  21:24:52  PAGE 3
 
 
   -------         ENDPROC       _DELAYMS
@@ -179,7 +179,7 @@ SYMBOL TABLE OF MODULE:  WaveformProgramInKeil (WAVEFORMPROGRAMINKEIL)
   C:093AH         LINE#         77
   C:093AH         LINE#         78
   C:093AH         LINE#         80
-BL51 BANKED LINKER/LOCATER V6.22                                                      01/05/2019  11:57:23  PAGE 4
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/08/2019  21:24:52  PAGE 4
 
 
   C:0943H         LINE#         81
@@ -212,53 +212,46 @@ SYMBOL TABLE OF MODULE:  WaveformProgramInKeil (WAVEFORMPROGRAMINKEIL)
   C:09DAH         LINE#         111
   -------         ENDPROC       KEYSCAN
   -------         PROC          MAIN
-  C:0B41H         LINE#         113
   C:0B41H         LINE#         114
-  C:0B48H         LINE#         115
-  C:0B4BH         LINE#         116
+  C:0B41H         LINE#         115
+  C:0B48H         LINE#         116
   C:0B4BH         LINE#         117
-  C:0B4EH         LINE#         118
+  C:0B4BH         LINE#         118
+  C:0B4EH         LINE#         119
   -------         ENDPROC       MAIN
-  -------         PROC          TMER0_INIT
-  C:0B2AH         LINE#         213
-  C:0B2AH         LINE#         214
-  C:0B2DH         LINE#         215
-  C:0B38H         LINE#         216
-  C:0B3AH         LINE#         217
-  C:0B3CH         LINE#         218
-  C:0B3EH         LINE#         219
-  C:0B40H         LINE#         220
-  -------         ENDPROC       TMER0_INIT
+  -------         PROC          TIMER0_INIT
+  C:0B2AH         LINE#         215
+  C:0B2AH         LINE#         223
+  C:0B2DH         LINE#         224
+  C:0B38H         LINE#         225
+  C:0B3AH         LINE#         226
+  C:0B3CH         LINE#         227
+  C:0B3EH         LINE#         228
+  C:0B40H         LINE#         229
+  -------         ENDPROC       TIMER0_INIT
   -------         PROC          TIMER0_INT
-  C:09DBH         LINE#         222
-  C:09F0H         LINE#         223
-  C:09FBH         LINE#         224
-  C:09FDH         LINE#         225
-  C:0A03H         LINE#         226
-  C:0A1DH         LINE#         227
-  C:0A1DH         LINE#         228
-  C:0A2FH         LINE#         229
-  C:0A2FH         LINE#         230
-BL51 BANKED LINKER/LOCATER V6.22                                                      01/05/2019  11:57:23  PAGE 5
+  C:09DBH         LINE#         231
+  C:09F0H         LINE#         232
+  C:09FBH         LINE#         233
+  C:09FDH         LINE#         234
+  C:0A03H         LINE#         235
+  C:0A1DH         LINE#         236
+  C:0A1DH         LINE#         237
+  C:0A2FH         LINE#         238
+  C:0A2FH         LINE#         239
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/08/2019  21:24:52  PAGE 5
 
 
-  C:0A41H         LINE#         231
-  C:0A41H         LINE#         232
-  C:0A53H         LINE#         233
-  C:0A53H         LINE#         234
-  C:0A69H         LINE#         235
-  C:0A69H         LINE#         236
-  C:0A69H         LINE#         237
-  C:0A69H         LINE#         238
+  C:0A41H         LINE#         240
+  C:0A41H         LINE#         241
+  C:0A53H         LINE#         242
+  C:0A53H         LINE#         243
+  C:0A69H         LINE#         244
+  C:0A69H         LINE#         245
+  C:0A69H         LINE#         246
+  C:0A69H         LINE#         247
   -------         ENDPROC       TIMER0_INT
   -------         ENDMOD        WAVEFORMPROGRAMINKEIL
-
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?TMER0_INIT?WAVEFORMPROGRAMINKEIL
-
-*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
-    SYMBOL:  TIMER0_INIT
-    MODULE:  WaveformProgramInKeil.obj (WAVEFORMPROGRAMINKEIL)
 
 *** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
     SYMBOL:  FRE
@@ -299,21 +292,16 @@ SYMBOL TABLE OF MODULE:  WaveformProgramInKeil (WAVEFORMPROGRAMINKEIL)
     MODULE:  WaveformProgramInKeil.obj (WAVEFORMPROGRAMINKEIL)
     ADDRESS: 09A0H
 
-BL51 BANKED LINKER/LOCATER V6.22                                                      01/05/2019  11:57:23  PAGE 6
-
-
 *** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
     SYMBOL:  FRE
     MODULE:  WaveformProgramInKeil.obj (WAVEFORMPROGRAMINKEIL)
     ADDRESS: 09C8H
 
 *** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
-    SYMBOL:  TIMER0_INIT
-    MODULE:  WaveformProgramInKeil.obj (WAVEFORMPROGRAMINKEIL)
-    ADDRESS: 0B49H
-
-*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
     SYMBOL:  FRE
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/08/2019  21:24:52  PAGE 6
+
+
     MODULE:  WaveformProgramInKeil.obj (WAVEFORMPROGRAMINKEIL)
     ADDRESS: 0B2EH
 
@@ -323,4 +311,4 @@ SYMBOL TABLE OF MODULE:  WaveformProgramInKeil (WAVEFORMPROGRAMINKEIL)
     ADDRESS: 09F1H
 
 Program Size: data=9.0 xdata=2059 code=2888
-LINK/LOCATE RUN COMPLETE.  14 WARNING(S),  0 ERROR(S)
+LINK/LOCATE RUN COMPLETE.  11 WARNING(S),  0 ERROR(S)

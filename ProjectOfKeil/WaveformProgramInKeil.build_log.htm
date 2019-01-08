@@ -26,12 +26,8 @@ Project File Date:  01/05/2019
 
 <h2>Output:</h2>
 Build target 'Target 1'
+compiling WaveformProgramInKeil.c...
 linking...
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?TMER0_INIT?WAVEFORMPROGRAMINKEIL
-*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
-    SYMBOL:  TIMER0_INIT
-    MODULE:  WaveformProgramInKeil.obj (WAVEFORMPROGRAMINKEIL)
 *** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
     SYMBOL:  FRE
     MODULE:  WaveformProgramInKeil.obj (WAVEFORMPROGRAMINKEIL)
@@ -68,10 +64,6 @@ linking...
     MODULE:  WaveformProgramInKeil.obj (WAVEFORMPROGRAMINKEIL)
     ADDRESS: 09C8H
 *** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
-    SYMBOL:  TIMER0_INIT
-    MODULE:  WaveformProgramInKeil.obj (WAVEFORMPROGRAMINKEIL)
-    ADDRESS: 0B49H
-*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
     SYMBOL:  FRE
     MODULE:  WaveformProgramInKeil.obj (WAVEFORMPROGRAMINKEIL)
     ADDRESS: 0B2EH
@@ -81,7 +73,16 @@ linking...
     ADDRESS: 09F1H
 Program Size: data=9.0 xdata=2059 code=2888
 creating hex file from "WaveformProgramInKeil"...
-"WaveformProgramInKeil" - 0 Error(s), 14 Warning(s).
+"WaveformProgramInKeil" - 0 Error(s), 11 Warning(s).
 </pre>
 </body>
 </html>
+  WaveformProgramInKeil.obj (WAVEFORMPROGRAMINKEIL)
+    ADDRESS: 09F1H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  TIMER0_INIT
+    MODULE:  WaveformProgramInKeil.obj (WAVEFORMPROGRAMINKEIL)
+    ADDRESS: 0B49H
+Program Size: data=9.0 xdata=2059 code=2888
+creating hex file from "WaveformProgramInKeil"...
+"WaveformProgramInKeil" - 0 Error(s), 14 Warning(s).

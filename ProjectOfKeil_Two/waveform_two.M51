@@ -1,0 +1,229 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        01/08/2019  22:23:21  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+F:\KEIL\C51\BIN\BL51.EXE waveform_two.obj TO waveform_two
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  waveform_two.obj (WAVEFORM_TWO)
+  F:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  F:\KEIL\C51\LIB\C51S.LIB (?C?CLDPTR)
+  F:\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  waveform_two (WAVEFORM_TWO)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     000EH     UNIT         ?DT?WAVEFORM_TWO
+            IDATA   0016H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0003H     ABSOLUTE     
+            CODE    0006H     0003H     UNIT         ?PR?OUTSIDE_INIT?WAVEFORM_TWO
+                    0009H     0002H                  *** GAP ***
+            CODE    000BH     0003H     ABSOLUTE     
+            CODE    000EH     0100H     UNIT         ?CO?WAVEFORM_TWO
+            CODE    010EH     00EFH     UNIT         ?PR?TIME0_INT?WAVEFORM_TWO
+            CODE    01FDH     00DEH     UNIT         ?PR?MAIN?WAVEFORM_TWO
+            CODE    02DBH     008CH     UNIT         ?C_C51STARTUP
+            CODE    0367H     002DH     UNIT         ?PR?_DELAY?WAVEFORM_TWO
+            CODE    0394H     0025H     UNIT         ?PR?OUTSIDE_INT?WAVEFORM_TWO
+            CODE    03B9H     001BH     UNIT         ?C_INITSEG
+            CODE    03D4H     0019H     UNIT         ?C?LIB_CODE
+            CODE    03EDH     000CH     UNIT         ?PR?TIME0_INIT?WAVEFORM_TWO
+
+
+
+OVERLAY MAP OF MODULE:   waveform_two (WAVEFORM_TWO)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?PR?TIME0_INT?WAVEFORM_TWO
+  +--> ?PR?_DELAY?WAVEFORM_TWO
+  +--> ?CO?WAVEFORM_TWO
+
+*** NEW ROOT ***************************************************
+
+?C_C51STARTUP
+  +--> ?PR?MAIN?WAVEFORM_TWO
+  +--> ?C_INITSEG
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/08/2019  22:23:21  PAGE 2
+
+
+
+?PR?MAIN?WAVEFORM_TWO
+  +--> ?PR?TIME0_INIT?WAVEFORM_TWO
+  +--> ?PR?OUTSIDE_INIT?WAVEFORM_TWO
+  +--> ?PR?_DELAY?WAVEFORM_TWO
+  +--> ?CO?WAVEFORM_TWO
+
+?C_INITSEG
+  +--> ?CO?WAVEFORM_TWO
+
+
+
+SYMBOL TABLE OF MODULE:  waveform_two (WAVEFORM_TWO)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        WAVEFORM_TWO
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IE
+  B:00B0H.5       PUBLIC        juchi
+  D:00B8H         PUBLIC        IP
+  D:0008H         PUBLIC        flag
+  D:000AH         PUBLIC        p1
+  C:01FDH         PUBLIC        main
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:0088H         PUBLIC        TCON
+  C:03EDH         PUBLIC        Time0_Init
+  D:008CH         PUBLIC        TH0
+  B:0088H.0       PUBLIC        IT0
+  C:010EH         PUBLIC        Time0_Int
+  D:000DH         PUBLIC        sanjiaof
+  D:008AH         PUBLIC        TL0
+  B:00B0H.6       PUBLIC        zhengxian
+  B:0088H.4       PUBLIC        TR0
+  C:0006H         PUBLIC        Outside_Init
+  D:000FH         PUBLIC        triangle
+  D:0011H         PUBLIC        f
+  D:00C8H         PUBLIC        T2CON
+  B:00B0H.7       PUBLIC        sanjiao
+  C:0394H         PUBLIC        Outside_Int
+  D:0013H         PUBLIC        p
+  B:00B0H.4       PUBLIC        fangbo
+  C:036EH         PUBLIC        _Delay
+  D:00D0H         PUBLIC        PSW
+  C:000EH         PUBLIC        sin1
+  -------         PROC          L?0055
+  -------         ENDPROC       L?0055
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        del
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/08/2019  22:23:21  PAGE 3
+
+
+  -------         ENDDO         
+  C:036EH         LINE#         52
+  C:036EH         LINE#         54
+  C:037EH         LINE#         55
+  C:0393H         LINE#         56
+  -------         ENDPROC       _DELAY
+  -------         PROC          OUTSIDE_INIT
+  C:0006H         LINE#         61
+  C:0006H         LINE#         62
+  C:0006H         LINE#         63
+  C:0008H         LINE#         64
+  -------         ENDPROC       OUTSIDE_INIT
+  -------         PROC          TIME0_INIT
+  C:03EDH         LINE#         69
+  C:03EDH         LINE#         70
+  C:03F0H         LINE#         71
+  C:03F3H         LINE#         72
+  C:03F6H         LINE#         73
+  C:03F8H         LINE#         74
+  -------         ENDPROC       TIME0_INIT
+  -------         PROC          TIME0_INT
+  C:010EH         LINE#         79
+  C:0129H         LINE#         80
+  C:012CH         LINE#         81
+  C:012FH         LINE#         82
+  C:0137H         LINE#         83
+  C:013AH         LINE#         84
+  C:013CH         LINE#         85
+  C:013CH         LINE#         86
+  C:013FH         LINE#         87
+  C:013FH         LINE#         88
+  C:0147H         LINE#         89
+  C:014AH         LINE#         90
+  C:0152H         LINE#         91
+  C:0161H         LINE#         92
+  C:0161H         LINE#         93
+  C:0169H         LINE#         94
+  C:0174H         LINE#         95
+  C:017FH         LINE#         96
+  C:0190H         LINE#         97
+  C:0199H         LINE#         98
+  C:0199H         LINE#         99
+  C:01A1H         LINE#         100
+  C:01AFH         LINE#         101
+  C:01C0H         LINE#         102
+  C:01D0H         LINE#         103
+  C:01E1H         LINE#         104
+  C:01E4H         LINE#         105
+  C:01E4H         LINE#         106
+  -------         ENDPROC       TIME0_INT
+  -------         PROC          MAIN
+  C:01FDH         LINE#         107
+  C:01FDH         LINE#         108
+  C:0200H         LINE#         109
+  C:0203H         LINE#         110
+  C:0206H         LINE#         112
+  C:0206H         LINE#         113
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/08/2019  22:23:21  PAGE 4
+
+
+  C:020CH         LINE#         114
+  C:020EH         LINE#         115
+  C:0214H         LINE#         116
+  C:0216H         LINE#         117
+  C:021EH         LINE#         118
+  C:0221H         LINE#         119
+  C:0223H         LINE#         120
+  C:0223H         LINE#         121
+  C:0226H         LINE#         122
+  C:0228H         LINE#         123
+  C:0230H         LINE#         124
+  C:0233H         LINE#         125
+  C:023BH         LINE#         126
+  C:0249H         LINE#         127
+  C:024BH         LINE#         128
+  C:0253H         LINE#         129
+  C:025EH         LINE#         130
+  C:0269H         LINE#         131
+  C:027AH         LINE#         132
+  C:0283H         LINE#         133
+  C:0285H         LINE#         134
+  C:0290H         LINE#         135
+  C:029EH         LINE#         136
+  C:02AFH         LINE#         137
+  C:02BFH         LINE#         138
+  C:02CFH         LINE#         139
+  C:02D2H         LINE#         140
+  C:02D9H         LINE#         141
+  -------         ENDPROC       MAIN
+  -------         PROC          OUTSIDE_INT
+  C:0394H         LINE#         144
+  C:0394H         LINE#         145
+  C:039DH         LINE#         146
+  C:03A6H         LINE#         147
+  C:03AFH         LINE#         148
+  C:03B8H         LINE#         149
+  -------         ENDPROC       OUTSIDE_INT
+  -------         ENDMOD        WAVEFORM_TWO
+
+  -------         MODULE        ?C?CLDPTR
+  C:03D4H         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+Program Size: data=23.0 xdata=0 code=1015
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

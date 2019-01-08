@@ -34,7 +34,7 @@
    <POPUP w="695" x="968" flags="00000000" y="242" h="459" pid="0" iid="26">
     <PROPERTIES/>
    </POPUP>
-   <POPUP w="210" x="108" flags="00000048" y="220" h="268" pid="1" iid="1">
+   <POPUP w="24" x="108" flags="00000048" y="220" h="17" pid="1" iid="1">
     <PROPERTIES/>
    </POPUP>
    <POPUP w="8" x="128" flags="0000000a" y="240" h="16" pid="3" iid="1">
@@ -57,7 +57,7 @@
      <ITEM name="TopLineAddress">00000080</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="695" x="1158" flags="00000000" y="571" h="459" pid="0" iid="24">
+   <POPUP w="695" x="98" flags="00000000" y="294" h="459" pid="0" iid="24">
     <PROPERTIES/>
    </POPUP>
   </PWI>
