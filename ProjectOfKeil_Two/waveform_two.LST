@@ -1,4 +1,4 @@
-C51 COMPILER V9.53.0.0   WAVEFORM_TWO                                                      01/08/2019 22:23:21 PAGE 1   
+C51 COMPILER V9.53.0.0   WAVEFORM_TWO                                                      01/08/2019 23:04:20 PAGE 1   
 
 
 C51 COMPILER V9.53.0.0, COMPILATION OF MODULE WAVEFORM_TWO
@@ -62,104 +62,103 @@ line level    source
   53   1        int i,j;
   54   1        for(i = 0; i < del ;i++)
   55   1        for(j = 0; j < 5; j++);
-C51 COMPILER V9.53.0.0   WAVEFORM_TWO                                                      01/08/2019 22:23:21 PAGE 2   
+C51 COMPILER V9.53.0.0   WAVEFORM_TWO                                                      01/08/2019 23:04:20 PAGE 2   
 
   56   1      }
   57          /*********************************************
   58          * 名称 : Outside_Init( )
   59          * 功能 : 外部中断0 初始化
   60          *********************************************/
-  61          void Outside_Init(void)
-  62          {
-  63   1      IT0 = 1; // 负边沿触发
-  64   1      }
-  65          /*********************************************
-  66          * Time0_Init( )
-  67          * 定时器的初始化,11.0592MZ晶振,50ms
-  68          *********************************************/
-  69          void Time0_Init( ){
-  70   1        TMOD = 0x01;
-  71   1        TH0 = 0x4c;
-  72   1        TL0 = 0x00;
-  73   1        TR0 = 1;
-  74   1      }
-  75          /*********************************************
-  76          * Time0_Int( )
-  77          * 定时器中断,中断中实现Count加一
-  78          *********************************************/
-  79          void Time0_Int( ) interrupt 1{
-  80   1        TH0 = 0xff;
-  81   1        TL0 = 0xe0;
-  82   1        if(flag == 1){//方波的产生函数
-  83   2          P0=0x01;
-  84   2          Delay(100);
-  85   2          P0 = 0xff;
-  86   2          Delay(100);
-  87   2        }
-  88   1        if(flag == 2){//锯齿波的产生函数
-  89   2          P0 = sanjiaof;
-  90   2          sanjiaof++;
-  91   2          if(sanjiaof >= 0xff) sanjiaof = 0x00;
-  92   2        }
-  93   1        if(flag == 3){//正弦波的产生函数
-  94   2          P0 = *p;
-  95   2          p++;
-  96   2          if(p>= p1)
-  97   2            p = sin1;
-  98   2        }
-  99   1        if(flag == 4){
- 100   2          if( f == 0) triangle++;
- 101   2          if(triangle >= 0xff) f = 1;
- 102   2          if( f == 1) triangle--;
- 103   2          if(triangle <= 0x01) f = 0;
- 104   2          P0=triangle;
- 105   2        }
- 106   1      }
- 107          void main(){
- 108   1        Time0_Init( );
- 109   1        Outside_Init( );
- 110   1        IE = 0x83;
- 111   1        //while(1);//开定时器中断和外部中断
- 112   1      while(1){
- 113   2        while(flag == 0){//没有波形
- 114   3        P0=0x00;
- 115   3        Delay(1);
- 116   3      }
- 117   2      while(flag == 1){//方波
-C51 COMPILER V9.53.0.0   WAVEFORM_TWO                                                      01/08/2019 22:23:21 PAGE 3   
+  61          void Outside_Init(void){
+  62   1        IT0 = 1; // 下降沿触发
+  63   1      }
+  64          /*********************************************
+  65          * Time0_Init( )
+  66          * 定时器的初始化,11.0592MZ晶振,50ms
+  67          *********************************************/
+  68          void Time0_Init( ){
+  69   1        TMOD = 0x01;//0000 0001
+  70   1        TH0 = 0x4c;//写入初值
+  71   1        TL0 = 0x00;
+  72   1        TR0 = 1;//启动
+  73   1      }
+  74          /*********************************************
+  75          * Time0_Int( )
+  76          * 定时器中断,中断中实现Count加一
+  77          *********************************************/
+  78          void Time0_Int( ) interrupt 1{//定时/计数器的中断号
+  79   1        TH0 = 0xff;
+  80   1        TL0 = 0xe0;
+  81   1        if(flag == 1){//方波的产生函数
+  82   2          P0=0x01;
+  83   2          Delay(100);
+  84   2          P0 = 0xff;
+  85   2          Delay(100);
+  86   2        }
+  87   1        if(flag == 2){//锯齿波的产生函数
+  88   2          P0 = sanjiaof;
+  89   2          sanjiaof++;
+  90   2          if(sanjiaof >= 0xff) sanjiaof = 0x00;
+  91   2        }
+  92   1        if(flag == 3){//正弦波的产生函数
+  93   2          P0 = *p;
+  94   2          p++;
+  95   2          if(p>= p1)
+  96   2            p = sin1;
+  97   2        }
+  98   1        if(flag == 4){
+  99   2          if( f == 0) triangle++;
+ 100   2          if(triangle >= 0xff) f = 1;
+ 101   2          if( f == 1) triangle--;
+ 102   2          if(triangle <= 0x01) f = 0;
+ 103   2          P0=triangle;
+ 104   2        }
+ 105   1      }
+ 106          void main(){
+ 107   1        Time0_Init( );
+ 108   1        Outside_Init( );
+ 109   1        IE = 0x83;
+ 110   1        //while(1);//开定时器中断和外部中断
+ 111   1      while(1){
+ 112   2        while(flag == 0){//没有波形
+ 113   3        P0=0x00;
+ 114   3        Delay(1);
+ 115   3      }
+ 116   2      while(flag == 1){//方波
+ 117   3        P0=0x01;
+C51 COMPILER V9.53.0.0   WAVEFORM_TWO                                                      01/08/2019 23:04:20 PAGE 3   
 
- 118   3        P0=0x01;
- 119   3        Delay(1);
- 120   3        P0 = 0xff;
- 121   3        Delay(1);
- 122   3      }
- 123   2      while(flag == 2){//锯齿波
- 124   3        P0 = sanjiaof;
- 125   3        sanjiaof++;
- 126   3        if(sanjiaof >= 0xff) sanjiaof = 0x00;
- 127   3      }
- 128   2      while(flag == 3){//正弦波
- 129   3        P0 = *p;
- 130   3        p++;
- 131   3        if(p>= p1)
- 132   3        p = sin1;
- 133   3      }
- 134   2      while(flag == 4){//三角波
- 135   3        if( f == 0) triangle++;
- 136   3        if(triangle >= 0xff) f = 1;
- 137   3        if( f == 1) triangle--;
- 138   3        if(triangle <= 0x01) f = 0;
- 139   3        P0=triangle;
- 140   3        Delay(1);
- 141   3        }
- 142   2      }
- 143   1      }
- 144          void Outside_Int(void) interrupt 0{
- 145   1        if(fangbo == 0) flag = 1;
- 146   1        if(juchi == 0) flag = 2;
- 147   1        if(zhengxian == 0) flag = 3;
- 148   1        if(sanjiao == 0) flag = 4;
- 149   1      }
+ 118   3        Delay(1);
+ 119   3        P0 = 0xff;
+ 120   3        Delay(1);
+ 121   3      }
+ 122   2      while(flag == 2){//锯齿波
+ 123   3        P0 = sanjiaof;
+ 124   3        sanjiaof++;
+ 125   3        if(sanjiaof >= 0xff) sanjiaof = 0x00;
+ 126   3      }
+ 127   2      while(flag == 3){//正弦波
+ 128   3        P0 = *p;
+ 129   3        p++;
+ 130   3        if(p>= p1)
+ 131   3        p = sin1;
+ 132   3      }
+ 133   2      while(flag == 4){//三角波
+ 134   3        if( f == 0) triangle++;
+ 135   3        if(triangle >= 0xff) f = 1;
+ 136   3        if( f == 1) triangle--;
+ 137   3        if(triangle <= 0x01) f = 0;
+ 138   3        P0=triangle;
+ 139   3        Delay(1);
+ 140   3        }
+ 141   2      }
+ 142   1      }
+ 143          void Outside_Int(void) interrupt 0{//外部中断0
+ 144   1        if(fangbo == 0) flag = 1;
+ 145   1        if(juchi == 0) flag = 2;
+ 146   1        if(zhengxian == 0) flag = 3;
+ 147   1        if(sanjiao == 0) flag = 4;
+ 148   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
