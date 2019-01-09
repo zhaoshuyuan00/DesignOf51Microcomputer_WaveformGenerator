@@ -1,18 +1,23 @@
-BL51 BANKED LINKER/LOCATER V6.22                                                        01/09/2019  19:08:54  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22                                                        01/09/2019  22:27:02  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
 F:\KEIL\C51\BIN\BL51.EXE waveform_two.obj TO waveform_two
 
 
-MEMORY MODEL: SMALL
+MEMORY MODEL: SMALL WITH FLOATING POINT ARITHMETIC
 
 
 INPUT MODULES INCLUDED:
   waveform_two.obj (WAVEFORM_TWO)
+  F:\KEIL\C51\LIB\C51FPS.LIB (?C?FPADD)
+  F:\KEIL\C51\LIB\C51FPS.LIB (?C?FCAST)
+  F:\KEIL\C51\LIB\C51FPS.LIB (?C?CASTF)
+  F:\KEIL\C51\LIB\C51FPS.LIB (?C?FPGETOPN)
   F:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
   F:\KEIL\C51\LIB\C51S.LIB (?C?CLDPTR)
   F:\KEIL\C51\LIB\C51S.LIB (?C?IMUL)
+  F:\KEIL\C51\LIB\C51S.LIB (?C?LNEG)
   F:\KEIL\C51\LIB\C51S.LIB (?C_INIT)
 
 
@@ -24,23 +29,23 @@ LINK MAP OF MODULE:  waveform_two (WAVEFORM_TWO)
 
             * * * * * * *   D A T A   M E M O R Y   * * * * * * *
             REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
-            DATA    0008H     000EH     UNIT         ?DT?WAVEFORM_TWO
-            IDATA   0016H     0001H     UNIT         ?STACK
+            DATA    0008H     001AH     UNIT         ?DT?WAVEFORM_TWO
+            IDATA   0022H     0001H     UNIT         ?STACK
 
             * * * * * * *   C O D E   M E M O R Y   * * * * * * *
             CODE    0000H     0003H     ABSOLUTE     
             CODE    0003H     0003H     ABSOLUTE     
                     0006H     0005H                  *** GAP ***
             CODE    000BH     0003H     ABSOLUTE     
-            CODE    000EH     0100H     UNIT         ?CO?WAVEFORM_TWO
-            CODE    010EH     00FEH     UNIT         ?PR?TIME0_INT?WAVEFORM_TWO
-            CODE    020CH     008CH     UNIT         ?C_C51STARTUP
-            CODE    0298H     002EH     UNIT         ?PR?_DELAY?WAVEFORM_TWO
-            CODE    02C6H     002BH     UNIT         ?C?LIB_CODE
-            CODE    02F1H     0025H     UNIT         ?PR?OUTSIDE_INT?WAVEFORM_TWO
-            CODE    0316H     001BH     UNIT         ?C_INITSEG
-            CODE    0331H     000CH     UNIT         ?PR?TIME0_INIT?WAVEFORM_TWO
-            CODE    033DH     000AH     UNIT         ?PR?MAIN?WAVEFORM_TWO
+            CODE    000EH     01F0H     UNIT         ?C?LIB_CODE
+            CODE    01FEH     016AH     UNIT         ?PR?TIME0_INT?WAVEFORM_TWO
+            CODE    0368H     0158H     UNIT         ?PR?OUTSIDE_INT?WAVEFORM_TWO
+            CODE    04C0H     0100H     UNIT         ?CO?WAVEFORM_TWO
+            CODE    05C0H     008CH     UNIT         ?C_C51STARTUP
+            CODE    064CH     0033H     UNIT         ?C_INITSEG
+            CODE    067FH     002EH     UNIT         ?PR?_DELAY?WAVEFORM_TWO
+            CODE    06ADH     000CH     UNIT         ?PR?TIME0_INIT?WAVEFORM_TWO
+            CODE    06B9H     000CH     UNIT         ?PR?MAIN?WAVEFORM_TWO
 
 
 
@@ -54,14 +59,14 @@ SEGMENT
   +--> ?PR?_DELAY?WAVEFORM_TWO
   +--> ?CO?WAVEFORM_TWO
 
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/09/2019  22:27:02  PAGE 2
+
+
 *** NEW ROOT ***************************************************
 
 ?C_C51STARTUP
   +--> ?PR?MAIN?WAVEFORM_TWO
   +--> ?C_INITSEG
-BL51 BANKED LINKER/LOCATER V6.22                                                      01/09/2019  19:08:54  PAGE 2
-
-
 
 ?PR?MAIN?WAVEFORM_TWO
   +--> ?PR?TIME0_INIT?WAVEFORM_TWO
@@ -81,114 +86,196 @@ SYMBOL TABLE OF MODULE:  waveform_two (WAVEFORM_TWO)
   D:0080H         PUBLIC        P0
   D:0090H         PUBLIC        P1
   D:00B0H         PUBLIC        P3
+  D:0008H         PUBLIC        tixing_delay_f_addorde
   D:00A8H         PUBLIC        IE
+  B:0090H.2       PUBLIC        p_decrease
+  D:000AH         PUBLIC        juchi_delay_add
+  D:000CH         PUBLIC        sanjiao_delay_addorde
   B:00B0H.5       PUBLIC        juchi
+  B:0090H.0       PUBLIC        tixing
   D:00B8H         PUBLIC        IP
-  D:0008H         PUBLIC        flag
-  D:000AH         PUBLIC        p1
-  C:033DH         PUBLIC        main
+  D:000EH         PUBLIC        flag
+  D:0010H         PUBLIC        p1
+  C:06B9H         PUBLIC        main
   D:0098H         PUBLIC        SCON
   D:0089H         PUBLIC        TMOD
   D:0088H         PUBLIC        TCON
-  C:0331H         PUBLIC        Time0_Init
+  D:0013H         PUBLIC        fangbo_delay_halfT
+  C:06ADH         PUBLIC        Time0_Init
   D:008CH         PUBLIC        TH0
   B:0088H.0       PUBLIC        IT0
-  C:010EH         PUBLIC        Time0_Int
-  D:000DH         PUBLIC        sanjiaof
+  C:01FEH         PUBLIC        Time0_Int
+  B:0088H.2       PUBLIC        IT1
+  D:0015H         PUBLIC        zhengxian_delay_add
+  D:0017H         PUBLIC        sanjiaof
   D:008AH         PUBLIC        TL0
   B:00B0H.6       PUBLIC        zhengxian
+  D:0019H         PUBLIC        tixing_delay_f_peak
   B:0088H.4       PUBLIC        TR0
-  D:000FH         PUBLIC        triangle
-  D:0011H         PUBLIC        f
+  D:001BH         PUBLIC        triangle
+  D:001DH         PUBLIC        f
   D:00C8H         PUBLIC        T2CON
   B:00B0H.7       PUBLIC        sanjiao
-  C:02F1H         PUBLIC        Outside_Int
-  D:0013H         PUBLIC        p
+  C:0368H         PUBLIC        Outside_Int
+  D:001FH         PUBLIC        p
   B:00B0H.4       PUBLIC        fangbo
-  C:0298H         PUBLIC        _Delay
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/09/2019  22:27:02  PAGE 3
+
+
+  C:067FH         PUBLIC        _Delay
+  B:0090H.1       PUBLIC        p_add
   D:00D0H         PUBLIC        PSW
-  C:000EH         PUBLIC        sin1
+  C:04C0H         PUBLIC        sin1
   -------         PROC          _DELAY
   D:0006H         SYMBOL        del
   -------         DO            
   D:0002H         SYMBOL        i
   D:0082H         SYMBOL        a
   -------         ENDDO         
-  C:0298H         LINE#         32
-  C:0298H         LINE#         35
-  C:02A3H         LINE#         36
-  C:02B0H         LINE#         37
-  C:02C5H         LINE#         38
-BL51 BANKED LINKER/LOCATER V6.22                                                      01/09/2019  19:08:54  PAGE 3
-
-
-  C:02C5H         LINE#         39
+  C:067FH         LINE#         41
+  C:067FH         LINE#         44
+  C:068AH         LINE#         45
+  C:0697H         LINE#         46
+  C:06ACH         LINE#         47
+  C:06ACH         LINE#         48
   -------         ENDPROC       _DELAY
   -------         PROC          TIME0_INIT
-  C:0331H         LINE#         41
-  C:0331H         LINE#         42
-  C:0334H         LINE#         43
-  C:0337H         LINE#         44
-  C:033AH         LINE#         45
-  C:033CH         LINE#         46
+  C:06ADH         LINE#         50
+  C:06ADH         LINE#         51
+  C:06B0H         LINE#         52
+  C:06B3H         LINE#         53
+  C:06B6H         LINE#         54
+  C:06B8H         LINE#         55
   -------         ENDPROC       TIME0_INIT
   -------         PROC          OUTSIDE_INT
-  C:02F1H         LINE#         48
-  C:02F1H         LINE#         49
-  C:02FAH         LINE#         50
-  C:0303H         LINE#         51
-  C:030CH         LINE#         52
-  C:0315H         LINE#         53
+  C:0368H         LINE#         57
+  C:0385H         LINE#         58
+  C:038EH         LINE#         59
+  C:0397H         LINE#         60
+  C:03A0H         LINE#         61
+  C:03A9H         LINE#         62
+  C:03B2H         LINE#         63
+  C:03B5H         LINE#         64
+  C:03BDH         LINE#         65
+  C:03C9H         LINE#         66
+  C:03C9H         LINE#         67
+  C:03D1H         LINE#         68
+  C:03D9H         LINE#         69
+  C:03D9H         LINE#         70
+  C:03E1H         LINE#         71
+  C:03E9H         LINE#         72
+  C:03E9H         LINE#         73
+  C:03F1H         LINE#         74
+  C:03F9H         LINE#         75
+  C:03F9H         LINE#         76
+  C:0401H         LINE#         77
+  C:0409H         LINE#         78
+  C:0411H         LINE#         79
+  C:0411H         LINE#         80
+  C:0411H         LINE#         81
+  C:0417H         LINE#         82
+  C:041FH         LINE#         83
+  C:042AH         LINE#         84
+  C:042AH         LINE#         85
+  C:0432H         LINE#         86
+  C:044BH         LINE#         87
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/09/2019  22:27:02  PAGE 4
+
+
+  C:044BH         LINE#         88
+  C:0453H         LINE#         89
+  C:046CH         LINE#         90
+  C:046CH         LINE#         91
+  C:0474H         LINE#         92
+  C:048DH         LINE#         93
+  C:048DH         LINE#         94
+  C:0495H         LINE#         95
+  C:049DH         LINE#         96
+  C:04A5H         LINE#         97
+  C:04A5H         LINE#         98
+  C:04A5H         LINE#         99
   -------         ENDPROC       OUTSIDE_INT
   -------         PROC          TIME0_INT
-  C:010EH         LINE#         55
-  C:012BH         LINE#         56
-  C:012EH         LINE#         57
-  C:0131H         LINE#         58
-  C:0139H         LINE#         59
-  C:013CH         LINE#         60
-  C:0142H         LINE#         61
-  C:0145H         LINE#         62
-  C:014CH         LINE#         63
-  C:014CH         LINE#         64
-  C:0154H         LINE#         65
-  C:0157H         LINE#         66
-  C:015FH         LINE#         67
-  C:016EH         LINE#         68
-  C:016EH         LINE#         69
-  C:0176H         LINE#         70
-  C:0181H         LINE#         71
-  C:018CH         LINE#         72
-  C:019DH         LINE#         73
-  C:01A6H         LINE#         74
-  C:01A6H         LINE#         75
-  C:01AEH         LINE#         76
-  C:01BCH         LINE#         77
-  C:01CDH         LINE#         78
-  C:01DDH         LINE#         79
-  C:01EEH         LINE#         80
-  C:01F1H         LINE#         81
-  C:01F1H         LINE#         82
+  C:01FEH         LINE#         101
+  C:021BH         LINE#         102
+  C:021EH         LINE#         103
+  C:0221H         LINE#         104
+  C:0229H         LINE#         105
+  C:022CH         LINE#         106
+  C:0233H         LINE#         107
+  C:0236H         LINE#         108
+  C:023DH         LINE#         109
+  C:023DH         LINE#         110
+  C:0245H         LINE#         111
+  C:0248H         LINE#         112
+  C:0254H         LINE#         113
+  C:0265H         LINE#         114
+  C:0265H         LINE#         115
+  C:026DH         LINE#         116
+  C:0278H         LINE#         117
+  C:0284H         LINE#         118
+  C:0295H         LINE#         119
+  C:029EH         LINE#         120
+  C:029EH         LINE#         121
+  C:02A6H         LINE#         122
+  C:02B8H         LINE#         123
+  C:02C9H         LINE#         124
+  C:02DEH         LINE#         125
+  C:02EFH         LINE#         126
+  C:02F2H         LINE#         127
+  C:02F2H         LINE#         128
+  C:02FAH         LINE#         129
+  C:030CH         LINE#         130
+  C:0317H         LINE#         131
+  C:031DH         LINE#         132
+  C:031DH         LINE#         133
+  C:0332H         LINE#         134
+  C:033DH         LINE#         135
+  C:0343H         LINE#         136
+  C:034AH         LINE#         137
+  C:034AH         LINE#         138
+  C:034DH         LINE#         139
+  C:034DH         LINE#         140
   -------         ENDPROC       TIME0_INT
   -------         PROC          MAIN
-  C:033DH         LINE#         84
-  C:033DH         LINE#         85
-  C:0340H         LINE#         86
-  C:0342H         LINE#         87
-  C:0345H         LINE#         88
+  C:06B9H         LINE#         142
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/09/2019  22:27:02  PAGE 5
+
+
+  C:06B9H         LINE#         143
+  C:06BCH         LINE#         144
+  C:06BEH         LINE#         145
+  C:06C0H         LINE#         146
+  C:06C3H         LINE#         147
   -------         ENDPROC       MAIN
   -------         ENDMOD        WAVEFORM_TWO
 
-BL51 BANKED LINKER/LOCATER V6.22                                                      01/09/2019  19:08:54  PAGE 4
+  -------         MODULE        ?C?FPADD
+  C:0015H         PUBLIC        ?C?FPADD
+  C:0011H         PUBLIC        ?C?FPSUB
+  -------         ENDMOD        ?C?FPADD
 
+  -------         MODULE        ?C?FCAST
+  C:0110H         PUBLIC        ?C?FCASTC
+  C:010BH         PUBLIC        ?C?FCASTI
+  C:0106H         PUBLIC        ?C?FCASTL
+  -------         ENDMOD        ?C?FCAST
+
+  -------         MODULE        ?C?CASTF
+  C:0144H         PUBLIC        ?C?CASTF
+  -------         ENDMOD        ?C?CASTF
 
   -------         MODULE        ?C?CLDPTR
-  C:02C6H         PUBLIC        ?C?CLDPTR
+  C:01C5H         PUBLIC        ?C?CLDPTR
   -------         ENDMOD        ?C?CLDPTR
 
   -------         MODULE        ?C?IMUL
-  C:02DFH         PUBLIC        ?C?IMUL
+  C:01DEH         PUBLIC        ?C?IMUL
   -------         ENDMOD        ?C?IMUL
 
-Program Size: data=23.0 xdata=0 code=834
+  -------         MODULE        ?C?LNEG
+  C:01F0H         PUBLIC        ?C?LNEG
+  -------         ENDMOD        ?C?LNEG
+
+Program Size: data=35.0 xdata=0 code=1728
 LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

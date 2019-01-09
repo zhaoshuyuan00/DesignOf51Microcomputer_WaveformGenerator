@@ -1,14 +1,23 @@
 #include<reg52.h>
 #define uchar unsigned char
 #define uint unsigned int
-uint flag = 1;//1.?? 2.??? 3.??? 4.???
+uint flag = 1;//1.?? 2.??? 3.??? 4.??? 5.???
 uint triangle = 0;//?????????
 uint sanjiaof = 0;
-uint f = 0;//?????
+uint f = 0;//??
+uint fangbo_delay_halfT = 20;//?????????,???ms,???????????
+uint juchi_delay_add = 1;//?????????,???1,???????????
+uint zhengxian_delay_add = 1;//?????????????,???????
+uint sanjiao_delay_addorde = 1;//??????????,???????????
+uint tixing_delay_f_addorde = 1;//??????????,???????
+uint tixing_delay_f_peak = 5;//?????????????,???????
 sbit fangbo = P3^4;//????
 sbit juchi = P3^5;
 sbit zhengxian = P3^6;
 sbit sanjiao = P3^7;
+sbit tixing = P1^0;
+sbit p_add = P1^1;//????
+sbit p_decrease = P1^2;//????
 uchar code sin1[256]={//???????,???????
 0x80,0x83,0x86,0x89,0x8D,0x90,0x93,0x96,0x99,0x9C,0x9F,0xA2,0xA5,0xA8,0xAB,0xAE,
 0xB1,0xB4,0xB7,0xBA,0xBC,0xBF,0xC2,0xC5,0xC7,0xCA,0xCC,0xCF,0xD1,0xD4,0xD6,0xD8,
@@ -38,52 +47,102 @@ void Delay(int del){
 	}
 }
 
-void Time0_Init( ){//??????,11.0592MHZ??,50ms
+void Time0_Init( ){//??????,12MHZ??,??50ms
 	TMOD = 0x01;//0000 0001
-	TH0 = 0x4c;//??????4c00H 
-	TL0 = 0x00;
+	TH0 = 0x3C;//??????3CB0H  15536
+	TL0 = 0xB0;
 	TR0 = 1;//??
 }
 
-void Outside_Int(void) interrupt 0{//????0
+void Outside_Int(void) interrupt 0{//????0 
 	if(fangbo == 0) flag = 1;
 	if(juchi == 0) flag = 2;
 	if(zhengxian == 0) flag = 3;
 	if(sanjiao == 0) flag = 4;
+	if(tixing == 0) flag = 5;
+	if(p_add == 0){//????
+		if(flag == 1){//??
+			fangbo_delay_halfT = fangbo_delay_halfT-5;
+		}
+		if(flag == 2){//???
+			juchi_delay_add = juchi_delay_add+1;
+		}
+		if(flag == 3){//???
+			zhengxian_delay_add = zhengxian_delay_add+1;
+		}
+		if(flag == 4){//???
+			sanjiao_delay_addorde = sanjiao_delay_addorde+1;
+		}
+		if(flag == 5){//???
+			tixing_delay_f_addorde = tixing_delay_f_addorde+1;
+			tixing_delay_f_peak = tixing_delay_f_peak - 1;
+		}
+	} 
+	if(p_decrease == 0){//????
+		if(flag == 1){//??
+			fangbo_delay_halfT = fangbo_delay_halfT+5;
+		}
+		if(flag == 2){//???
+			juchi_delay_add = juchi_delay_add-0.1;
+		}
+		if(flag == 3){//???
+			zhengxian_delay_add = zhengxian_delay_add-0.1;
+		}
+		if(flag == 4){//???
+			sanjiao_delay_addorde = sanjiao_delay_addorde-0.1;
+		}
+		if(flag == 5){//???
+			tixing_delay_f_addorde = tixing_delay_f_addorde-1;
+			tixing_delay_f_peak = tixing_delay_f_peak + 1;
+		}
+	} 
 }
 
-void Time0_Int( ) interrupt 1{//?????,??count??
-  TH0 = 0xff;
+void Time0_Int( ) interrupt 1{//?????
+  TH0 = 0xff;//???????,65504 ?? 32 us  ?????????????????????
   TL0 = 0xe0;
   if(flag == 1){//??
     P0=0x01;
-    Delay(10);
+    Delay(fangbo_delay_halfT);
     P0 = 0xff;
-    Delay(10);
+    Delay(fangbo_delay_halfT);
   }
   if(flag == 2){//???
     P0 = sanjiaof;
-    sanjiaof++;
+    sanjiaof = sanjiaof + juchi_delay_add;
     if(sanjiaof >= 0xff) sanjiaof = 0x00;
   }
   if(flag == 3){//???
     P0 = *p;
-		p++;
+		p = p + zhengxian_delay_add;
 		if(p>= p1)
 			p = sin1;
 	}
-	if(flag == 4){
-		if( f == 0) triangle++;
+	if(flag == 4){//???
+		if( f == 0) triangle = triangle + sanjiao_delay_addorde;
 		if(triangle >= 0xff) f = 1;
-		if( f == 1) triangle--;
+		if( f == 1) triangle = triangle - sanjiao_delay_addorde;
 		if(triangle <= 0x01) f = 0;
+		P0=triangle;
+	}
+	if(flag == 5){//???
+		if(f == 0) triangle = triangle + tixing_delay_f_addorde;
+		if(triangle >= 0xff){
+			f = 1;
+		} 
+		if( f == 1) triangle = triangle - tixing_delay_f_addorde;
+		if(triangle <= 0x01){
+			f = 0;
+			Delay(tixing_delay_f_peak);
+		} 
 		P0=triangle;
 	}
 }
 /*???*/
 void main(){
 	Time0_Init( );
-	IT0 = 1;//????0?????
-	IE = 0x83;//???????1000 0011 ?????????
+	IT1 = 1;//????0\1?????
+	IT0 = 1;
+	IE = 0x87;//???????1000 0111 ?????????0?1
 	while(1);
 }
