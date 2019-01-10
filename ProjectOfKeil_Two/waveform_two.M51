@@ -1,4 +1,4 @@
-BL51 BANKED LINKER/LOCATER V6.22                                                        01/09/2019  22:27:02  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22                                                        01/10/2019  08:14:39  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
@@ -39,13 +39,13 @@ LINK MAP OF MODULE:  waveform_two (WAVEFORM_TWO)
             CODE    000BH     0003H     ABSOLUTE     
             CODE    000EH     01F0H     UNIT         ?C?LIB_CODE
             CODE    01FEH     016AH     UNIT         ?PR?TIME0_INT?WAVEFORM_TWO
-            CODE    0368H     0158H     UNIT         ?PR?OUTSIDE_INT?WAVEFORM_TWO
-            CODE    04C0H     0100H     UNIT         ?CO?WAVEFORM_TWO
-            CODE    05C0H     008CH     UNIT         ?C_C51STARTUP
-            CODE    064CH     0033H     UNIT         ?C_INITSEG
-            CODE    067FH     002EH     UNIT         ?PR?_DELAY?WAVEFORM_TWO
-            CODE    06ADH     000CH     UNIT         ?PR?TIME0_INIT?WAVEFORM_TWO
-            CODE    06B9H     000CH     UNIT         ?PR?MAIN?WAVEFORM_TWO
+            CODE    0368H     0152H     UNIT         ?PR?OUTSIDE_INT?WAVEFORM_TWO
+            CODE    04BAH     0100H     UNIT         ?CO?WAVEFORM_TWO
+            CODE    05BAH     008CH     UNIT         ?C_C51STARTUP
+            CODE    0646H     0033H     UNIT         ?C_INITSEG
+            CODE    0679H     002EH     UNIT         ?PR?_DELAY?WAVEFORM_TWO
+            CODE    06A7H     000CH     UNIT         ?PR?TIME0_INIT?WAVEFORM_TWO
+            CODE    06B3H     000AH     UNIT         ?PR?MAIN?WAVEFORM_TWO
 
 
 
@@ -59,7 +59,7 @@ SEGMENT
   +--> ?PR?_DELAY?WAVEFORM_TWO
   +--> ?CO?WAVEFORM_TWO
 
-BL51 BANKED LINKER/LOCATER V6.22                                                      01/09/2019  22:27:02  PAGE 2
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/10/2019  08:14:39  PAGE 2
 
 
 *** NEW ROOT ***************************************************
@@ -96,16 +96,15 @@ SYMBOL TABLE OF MODULE:  waveform_two (WAVEFORM_TWO)
   D:00B8H         PUBLIC        IP
   D:000EH         PUBLIC        flag
   D:0010H         PUBLIC        p1
-  C:06B9H         PUBLIC        main
+  C:06B3H         PUBLIC        main
   D:0098H         PUBLIC        SCON
   D:0089H         PUBLIC        TMOD
   D:0088H         PUBLIC        TCON
   D:0013H         PUBLIC        fangbo_delay_halfT
-  C:06ADH         PUBLIC        Time0_Init
+  C:06A7H         PUBLIC        Time0_Init
   D:008CH         PUBLIC        TH0
   B:0088H.0       PUBLIC        IT0
   C:01FEH         PUBLIC        Time0_Int
-  B:0088H.2       PUBLIC        IT1
   D:0015H         PUBLIC        zhengxian_delay_add
   D:0017H         PUBLIC        sanjiaof
   D:008AH         PUBLIC        TL0
@@ -119,33 +118,33 @@ SYMBOL TABLE OF MODULE:  waveform_two (WAVEFORM_TWO)
   C:0368H         PUBLIC        Outside_Int
   D:001FH         PUBLIC        p
   B:00B0H.4       PUBLIC        fangbo
-BL51 BANKED LINKER/LOCATER V6.22                                                      01/09/2019  22:27:02  PAGE 3
+  C:0679H         PUBLIC        _Delay
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/10/2019  08:14:39  PAGE 3
 
 
-  C:067FH         PUBLIC        _Delay
   B:0090H.1       PUBLIC        p_add
   D:00D0H         PUBLIC        PSW
-  C:04C0H         PUBLIC        sin1
+  C:04BAH         PUBLIC        sin1
   -------         PROC          _DELAY
   D:0006H         SYMBOL        del
   -------         DO            
   D:0002H         SYMBOL        i
   D:0082H         SYMBOL        a
   -------         ENDDO         
-  C:067FH         LINE#         41
-  C:067FH         LINE#         44
-  C:068AH         LINE#         45
-  C:0697H         LINE#         46
-  C:06ACH         LINE#         47
-  C:06ACH         LINE#         48
+  C:0679H         LINE#         41
+  C:0679H         LINE#         44
+  C:0684H         LINE#         45
+  C:0691H         LINE#         46
+  C:06A6H         LINE#         47
+  C:06A6H         LINE#         48
   -------         ENDPROC       _DELAY
   -------         PROC          TIME0_INIT
-  C:06ADH         LINE#         50
-  C:06ADH         LINE#         51
-  C:06B0H         LINE#         52
-  C:06B3H         LINE#         53
-  C:06B6H         LINE#         54
-  C:06B8H         LINE#         55
+  C:06A7H         LINE#         50
+  C:06A7H         LINE#         51
+  C:06AAH         LINE#         52
+  C:06ADH         LINE#         53
+  C:06B0H         LINE#         54
+  C:06B2H         LINE#         55
   -------         ENDPROC       TIME0_INIT
   -------         PROC          OUTSIDE_INT
   C:0368H         LINE#         57
@@ -178,22 +177,22 @@ SYMBOL TABLE OF MODULE:  waveform_two (WAVEFORM_TWO)
   C:042AH         LINE#         84
   C:042AH         LINE#         85
   C:0432H         LINE#         86
-  C:044BH         LINE#         87
-BL51 BANKED LINKER/LOCATER V6.22                                                      01/09/2019  22:27:02  PAGE 4
+  C:0449H         LINE#         87
+  C:0449H         LINE#         88
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/10/2019  08:14:39  PAGE 4
 
 
-  C:044BH         LINE#         88
-  C:0453H         LINE#         89
-  C:046CH         LINE#         90
-  C:046CH         LINE#         91
-  C:0474H         LINE#         92
-  C:048DH         LINE#         93
-  C:048DH         LINE#         94
-  C:0495H         LINE#         95
-  C:049DH         LINE#         96
-  C:04A5H         LINE#         97
-  C:04A5H         LINE#         98
-  C:04A5H         LINE#         99
+  C:0451H         LINE#         89
+  C:0468H         LINE#         90
+  C:0468H         LINE#         91
+  C:0470H         LINE#         92
+  C:0487H         LINE#         93
+  C:0487H         LINE#         94
+  C:048FH         LINE#         95
+  C:0497H         LINE#         96
+  C:049FH         LINE#         97
+  C:049FH         LINE#         98
+  C:049FH         LINE#         99
   -------         ENDPROC       OUTSIDE_INT
   -------         PROC          TIME0_INT
   C:01FEH         LINE#         101
@@ -238,15 +237,14 @@ SYMBOL TABLE OF MODULE:  waveform_two (WAVEFORM_TWO)
   C:034DH         LINE#         140
   -------         ENDPROC       TIME0_INT
   -------         PROC          MAIN
-  C:06B9H         LINE#         142
-BL51 BANKED LINKER/LOCATER V6.22                                                      01/09/2019  22:27:02  PAGE 5
+  C:06B3H         LINE#         142
+  C:06B3H         LINE#         143
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/10/2019  08:14:39  PAGE 5
 
 
-  C:06B9H         LINE#         143
-  C:06BCH         LINE#         144
-  C:06BEH         LINE#         145
-  C:06C0H         LINE#         146
-  C:06C3H         LINE#         147
+  C:06B6H         LINE#         144
+  C:06B8H         LINE#         145
+  C:06BBH         LINE#         146
   -------         ENDPROC       MAIN
   -------         ENDMOD        WAVEFORM_TWO
 
@@ -277,5 +275,5 @@ SYMBOL TABLE OF MODULE:  waveform_two (WAVEFORM_TWO)
   C:01F0H         PUBLIC        ?C?LNEG
   -------         ENDMOD        ?C?LNEG
 
-Program Size: data=35.0 xdata=0 code=1728
+Program Size: data=35.0 xdata=0 code=1720
 LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

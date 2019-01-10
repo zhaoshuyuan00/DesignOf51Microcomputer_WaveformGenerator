@@ -1,4 +1,4 @@
-C51 COMPILER V9.53.0.0   WAVEFORM_TWO                                                      01/09/2019 22:27:02 PAGE 1   
+C51 COMPILER V9.53.0.0   WAVEFORM_TWO                                                      01/10/2019 08:14:39 PAGE 1   
 
 
 C51 COMPILER V9.53.0.0, COMPILATION OF MODULE WAVEFORM_TWO
@@ -62,7 +62,7 @@ line level    source
   53   1        TL0 = 0xB0;
   54   1        TR0 = 1;//??
   55   1      }
-C51 COMPILER V9.53.0.0   WAVEFORM_TWO                                                      01/09/2019 22:27:02 PAGE 2   
+C51 COMPILER V9.53.0.0   WAVEFORM_TWO                                                      01/10/2019 08:14:39 PAGE 2   
 
   56          
   57          void Outside_Int(void) interrupt 0{//????0 
@@ -94,13 +94,13 @@ line level    source
   83   3            fangbo_delay_halfT = fangbo_delay_halfT+5;
   84   3          }
   85   2          if(flag == 2){//???
-  86   3            juchi_delay_add = juchi_delay_add-0.1;
+  86   3            juchi_delay_add = juchi_delay_add-0.5;
   87   3          }
   88   2          if(flag == 3){//???
-  89   3            zhengxian_delay_add = zhengxian_delay_add-0.1;
+  89   3            zhengxian_delay_add = zhengxian_delay_add-0.5;
   90   3          }
   91   2          if(flag == 4){//???
-  92   3            sanjiao_delay_addorde = sanjiao_delay_addorde-0.1;
+  92   3            sanjiao_delay_addorde = sanjiao_delay_addorde-0.5;
   93   3          }
   94   2          if(flag == 5){//???
   95   3            tixing_delay_f_addorde = tixing_delay_f_addorde-1;
@@ -126,7 +126,7 @@ line level    source
  115   1        if(flag == 3){//???
  116   2          P0 = *p;
  117   2          p = p + zhengxian_delay_add;
-C51 COMPILER V9.53.0.0   WAVEFORM_TWO                                                      01/09/2019 22:27:02 PAGE 3   
+C51 COMPILER V9.53.0.0   WAVEFORM_TWO                                                      01/10/2019 08:14:39 PAGE 3   
 
  118   2          if(p>= p1)
  119   2            p = sin1;
@@ -154,15 +154,14 @@ line level    source
  141          /*???*/
  142          void main(){
  143   1        Time0_Init( );
- 144   1        IT1 = 1;//????0\1?????
- 145   1        IT0 = 1;
- 146   1        IE = 0x87;//???????1000 0111 ?????????0?1
- 147   1        while(1);
- 148   1      }
+ 144   1        IT0 = 1;//????0?????
+ 145   1        IE = 0x87;//???????1000 0111 ?????????0
+ 146   1        while(1);
+ 147   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    776    ----
+   CODE SIZE        =    768    ----
    CONSTANT SIZE    =    256    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----

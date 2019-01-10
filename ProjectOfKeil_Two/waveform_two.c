@@ -83,13 +83,13 @@ void Outside_Int(void) interrupt 0{//????0
 			fangbo_delay_halfT = fangbo_delay_halfT+5;
 		}
 		if(flag == 2){//???
-			juchi_delay_add = juchi_delay_add-0.1;
+			juchi_delay_add = juchi_delay_add-0.5;
 		}
 		if(flag == 3){//???
-			zhengxian_delay_add = zhengxian_delay_add-0.1;
+			zhengxian_delay_add = zhengxian_delay_add-0.5;
 		}
 		if(flag == 4){//???
-			sanjiao_delay_addorde = sanjiao_delay_addorde-0.1;
+			sanjiao_delay_addorde = sanjiao_delay_addorde-0.5;
 		}
 		if(flag == 5){//???
 			tixing_delay_f_addorde = tixing_delay_f_addorde-1;
@@ -141,8 +141,7 @@ void Time0_Int( ) interrupt 1{//?????
 /*???*/
 void main(){
 	Time0_Init( );
-	IT1 = 1;//????0\1?????
-	IT0 = 1;
-	IE = 0x87;//???????1000 0111 ?????????0?1
+	IT0 = 1;//????0?????
+	IE = 0x87;//???????1000 0111 ?????????0
 	while(1);
 }
