@@ -1,4 +1,4 @@
-BL51 BANKED LINKER/LOCATER V6.22                                                        01/10/2019  08:14:39  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22                                                        01/11/2019  15:16:07  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
@@ -29,8 +29,8 @@ LINK MAP OF MODULE:  waveform_two (WAVEFORM_TWO)
 
             * * * * * * *   D A T A   M E M O R Y   * * * * * * *
             REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
-            DATA    0008H     001AH     UNIT         ?DT?WAVEFORM_TWO
-            IDATA   0022H     0001H     UNIT         ?STACK
+            DATA    0008H     001CH     UNIT         ?DT?WAVEFORM_TWO
+            IDATA   0024H     0001H     UNIT         ?STACK
 
             * * * * * * *   C O D E   M E M O R Y   * * * * * * *
             CODE    0000H     0003H     ABSOLUTE     
@@ -38,14 +38,14 @@ LINK MAP OF MODULE:  waveform_two (WAVEFORM_TWO)
                     0006H     0005H                  *** GAP ***
             CODE    000BH     0003H     ABSOLUTE     
             CODE    000EH     01F0H     UNIT         ?C?LIB_CODE
-            CODE    01FEH     016AH     UNIT         ?PR?TIME0_INT?WAVEFORM_TWO
-            CODE    0368H     0152H     UNIT         ?PR?OUTSIDE_INT?WAVEFORM_TWO
-            CODE    04BAH     0100H     UNIT         ?CO?WAVEFORM_TWO
-            CODE    05BAH     008CH     UNIT         ?C_C51STARTUP
-            CODE    0646H     0033H     UNIT         ?C_INITSEG
-            CODE    0679H     002EH     UNIT         ?PR?_DELAY?WAVEFORM_TWO
-            CODE    06A7H     000CH     UNIT         ?PR?TIME0_INIT?WAVEFORM_TWO
-            CODE    06B3H     000AH     UNIT         ?PR?MAIN?WAVEFORM_TWO
+            CODE    01FEH     0162H     UNIT         ?PR?TIME0_INT?WAVEFORM_TWO
+            CODE    0360H     011AH     UNIT         ?PR?OUTSIDE_INT?WAVEFORM_TWO
+            CODE    047AH     0100H     UNIT         ?CO?WAVEFORM_TWO
+            CODE    057AH     008CH     UNIT         ?C_C51STARTUP
+            CODE    0606H     0033H     UNIT         ?C_INITSEG
+            CODE    0639H     001FH     UNIT         ?PR?_DELAY?WAVEFORM_TWO
+            CODE    0658H     0019H     UNIT         ?PR?MAIN?WAVEFORM_TWO
+            CODE    0671H     000CH     UNIT         ?PR?TIME0_INIT?WAVEFORM_TWO
 
 
 
@@ -59,7 +59,7 @@ SEGMENT
   +--> ?PR?_DELAY?WAVEFORM_TWO
   +--> ?CO?WAVEFORM_TWO
 
-BL51 BANKED LINKER/LOCATER V6.22                                                      01/10/2019  08:14:39  PAGE 2
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/11/2019  15:16:07  PAGE 2
 
 
 *** NEW ROOT ***************************************************
@@ -88,163 +88,161 @@ SYMBOL TABLE OF MODULE:  waveform_two (WAVEFORM_TWO)
   D:00B0H         PUBLIC        P3
   D:0008H         PUBLIC        tixing_delay_f_addorde
   D:00A8H         PUBLIC        IE
-  B:0090H.2       PUBLIC        p_decrease
+  B:0090H.6       PUBLIC        p_decrease
   D:000AH         PUBLIC        juchi_delay_add
   D:000CH         PUBLIC        sanjiao_delay_addorde
-  B:00B0H.5       PUBLIC        juchi
-  B:0090H.0       PUBLIC        tixing
+  B:0090H.1       PUBLIC        juchi
+  B:0090H.4       PUBLIC        tixing
   D:00B8H         PUBLIC        IP
   D:000EH         PUBLIC        flag
   D:0010H         PUBLIC        p1
-  C:06B3H         PUBLIC        main
+  C:0658H         PUBLIC        main
   D:0098H         PUBLIC        SCON
   D:0089H         PUBLIC        TMOD
   D:0088H         PUBLIC        TCON
   D:0013H         PUBLIC        fangbo_delay_halfT
-  C:06A7H         PUBLIC        Time0_Init
+  C:0671H         PUBLIC        Time0_Init
   D:008CH         PUBLIC        TH0
   B:0088H.0       PUBLIC        IT0
   C:01FEH         PUBLIC        Time0_Int
   D:0015H         PUBLIC        zhengxian_delay_add
   D:0017H         PUBLIC        sanjiaof
   D:008AH         PUBLIC        TL0
-  B:00B0H.6       PUBLIC        zhengxian
+  B:0090H.2       PUBLIC        zhengxian
   D:0019H         PUBLIC        tixing_delay_f_peak
   B:0088H.4       PUBLIC        TR0
-  D:001BH         PUBLIC        triangle
-  D:001DH         PUBLIC        f
+  D:001BH         PUBLIC        f
   D:00C8H         PUBLIC        T2CON
-  B:00B0H.7       PUBLIC        sanjiao
-  C:0368H         PUBLIC        Outside_Int
-  D:001FH         PUBLIC        p
-  B:00B0H.4       PUBLIC        fangbo
-  C:0679H         PUBLIC        _Delay
-BL51 BANKED LINKER/LOCATER V6.22                                                      01/10/2019  08:14:39  PAGE 3
+  B:0090H.3       PUBLIC        sanjiao
+  C:0360H         PUBLIC        Outside_Int
+  D:001DH         PUBLIC        p
+  B:0090H.0       PUBLIC        fangbo
+  C:0639H         PUBLIC        _Delay
+  B:0090H.5       PUBLIC        p_add
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/11/2019  15:16:07  PAGE 3
 
 
-  B:0090H.1       PUBLIC        p_add
   D:00D0H         PUBLIC        PSW
-  C:04BAH         PUBLIC        sin1
+  C:047AH         PUBLIC        sin1
+  D:0020H         PUBLIC        juchif
+  D:0022H         PUBLIC        tixingf
   -------         PROC          _DELAY
   D:0006H         SYMBOL        del
   -------         DO            
-  D:0002H         SYMBOL        i
-  D:0082H         SYMBOL        a
+  D:0004H         SYMBOL        i
   -------         ENDDO         
-  C:0679H         LINE#         41
-  C:0679H         LINE#         44
-  C:0684H         LINE#         45
-  C:0691H         LINE#         46
-  C:06A6H         LINE#         47
-  C:06A6H         LINE#         48
+  C:0639H         LINE#         42
+  C:0639H         LINE#         44
+  C:0642H         LINE#         45
+  C:0657H         LINE#         46
+  C:0657H         LINE#         47
   -------         ENDPROC       _DELAY
   -------         PROC          TIME0_INIT
-  C:06A7H         LINE#         50
-  C:06A7H         LINE#         51
-  C:06AAH         LINE#         52
-  C:06ADH         LINE#         53
-  C:06B0H         LINE#         54
-  C:06B2H         LINE#         55
+  C:0671H         LINE#         49
+  C:0671H         LINE#         50
+  C:0674H         LINE#         51
+  C:0677H         LINE#         52
+  C:067AH         LINE#         53
+  C:067CH         LINE#         54
   -------         ENDPROC       TIME0_INIT
   -------         PROC          OUTSIDE_INT
-  C:0368H         LINE#         57
-  C:0385H         LINE#         58
-  C:038EH         LINE#         59
-  C:0397H         LINE#         60
-  C:03A0H         LINE#         61
-  C:03A9H         LINE#         62
-  C:03B2H         LINE#         63
+  C:0360H         LINE#         56
+  C:037DH         LINE#         57
+  C:0386H         LINE#         58
+  C:038FH         LINE#         59
+  C:0398H         LINE#         60
+  C:03A1H         LINE#         61
+  C:03AAH         LINE#         62
+  C:03ADH         LINE#         63
   C:03B5H         LINE#         64
-  C:03BDH         LINE#         65
-  C:03C9H         LINE#         66
-  C:03C9H         LINE#         67
-  C:03D1H         LINE#         68
-  C:03D9H         LINE#         69
-  C:03D9H         LINE#         70
-  C:03E1H         LINE#         71
-  C:03E9H         LINE#         72
-  C:03E9H         LINE#         73
-  C:03F1H         LINE#         74
-  C:03F9H         LINE#         75
-  C:03F9H         LINE#         76
-  C:0401H         LINE#         77
-  C:0409H         LINE#         78
-  C:0411H         LINE#         79
-  C:0411H         LINE#         80
-  C:0411H         LINE#         81
-  C:0417H         LINE#         82
+  C:03CCH         LINE#         65
+  C:03CCH         LINE#         66
+  C:03D4H         LINE#         67
+  C:03DCH         LINE#         68
+  C:03DCH         LINE#         69
+  C:03E4H         LINE#         70
+  C:03ECH         LINE#         71
+  C:03ECH         LINE#         72
+  C:03F4H         LINE#         73
+  C:03FCH         LINE#         74
+  C:03FCH         LINE#         75
+  C:0404H         LINE#         76
+  C:040CH         LINE#         77
+  C:040CH         LINE#         78
+  C:040CH         LINE#         79
+  C:040FH         LINE#         80
+  C:0417H         LINE#         81
+  C:041FH         LINE#         82
   C:041FH         LINE#         83
-  C:042AH         LINE#         84
-  C:042AH         LINE#         85
-  C:0432H         LINE#         86
-  C:0449H         LINE#         87
-  C:0449H         LINE#         88
-BL51 BANKED LINKER/LOCATER V6.22                                                      01/10/2019  08:14:39  PAGE 4
+  C:0427H         LINE#         84
+  C:042FH         LINE#         85
+  C:042FH         LINE#         86
+  C:0437H         LINE#         87
+  C:043FH         LINE#         88
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/11/2019  15:16:07  PAGE 4
 
 
-  C:0451H         LINE#         89
-  C:0468H         LINE#         90
-  C:0468H         LINE#         91
-  C:0470H         LINE#         92
-  C:0487H         LINE#         93
-  C:0487H         LINE#         94
-  C:048FH         LINE#         95
-  C:0497H         LINE#         96
-  C:049FH         LINE#         97
-  C:049FH         LINE#         98
-  C:049FH         LINE#         99
+  C:043FH         LINE#         89
+  C:0447H         LINE#         90
+  C:044FH         LINE#         91
+  C:044FH         LINE#         92
+  C:0457H         LINE#         93
+  C:045FH         LINE#         94
+  C:045FH         LINE#         95
+  C:045FH         LINE#         96
   -------         ENDPROC       OUTSIDE_INT
   -------         PROC          TIME0_INT
-  C:01FEH         LINE#         101
-  C:021BH         LINE#         102
-  C:021EH         LINE#         103
-  C:0221H         LINE#         104
-  C:0229H         LINE#         105
-  C:022CH         LINE#         106
-  C:0233H         LINE#         107
-  C:0236H         LINE#         108
-  C:023DH         LINE#         109
-  C:023DH         LINE#         110
-  C:0245H         LINE#         111
-  C:0248H         LINE#         112
-  C:0254H         LINE#         113
-  C:0265H         LINE#         114
-  C:0265H         LINE#         115
-  C:026DH         LINE#         116
-  C:0278H         LINE#         117
-  C:0284H         LINE#         118
-  C:0295H         LINE#         119
-  C:029EH         LINE#         120
-  C:029EH         LINE#         121
-  C:02A6H         LINE#         122
-  C:02B8H         LINE#         123
-  C:02C9H         LINE#         124
-  C:02DEH         LINE#         125
-  C:02EFH         LINE#         126
-  C:02F2H         LINE#         127
-  C:02F2H         LINE#         128
-  C:02FAH         LINE#         129
-  C:030CH         LINE#         130
-  C:0317H         LINE#         131
-  C:031DH         LINE#         132
-  C:031DH         LINE#         133
-  C:0332H         LINE#         134
-  C:033DH         LINE#         135
-  C:0343H         LINE#         136
-  C:034AH         LINE#         137
-  C:034AH         LINE#         138
-  C:034DH         LINE#         139
-  C:034DH         LINE#         140
+  C:01FEH         LINE#         98
+  C:0217H         LINE#         99
+  C:021AH         LINE#         100
+  C:021DH         LINE#         101
+  C:0225H         LINE#         102
+  C:0228H         LINE#         103
+  C:022FH         LINE#         104
+  C:0232H         LINE#         105
+  C:0239H         LINE#         106
+  C:0239H         LINE#         107
+  C:0241H         LINE#         108
+  C:0244H         LINE#         109
+  C:0250H         LINE#         110
+  C:0261H         LINE#         111
+  C:0261H         LINE#         112
+  C:0269H         LINE#         113
+  C:0274H         LINE#         114
+  C:0280H         LINE#         115
+  C:0291H         LINE#         116
+  C:029AH         LINE#         117
+  C:029AH         LINE#         118
+  C:02A2H         LINE#         119
+  C:02A5H         LINE#         120
+  C:02B7H         LINE#         121
+  C:02C8H         LINE#         122
+  C:02DDH         LINE#         123
+  C:02EEH         LINE#         124
+  C:02EEH         LINE#         125
+  C:02F6H         LINE#         126
+  C:02F9H         LINE#         127
+  C:030BH         LINE#         128
+  C:0316H         LINE#         129
+  C:031CH         LINE#         130
+  C:031CH         LINE#         131
+  C:0331H         LINE#         132
+  C:033CH         LINE#         133
+  C:0342H         LINE#         134
+  C:0349H         LINE#         135
+  C:0349H         LINE#         137
+  C:0349H         LINE#         138
   -------         ENDPROC       TIME0_INT
   -------         PROC          MAIN
-  C:06B3H         LINE#         142
-  C:06B3H         LINE#         143
-BL51 BANKED LINKER/LOCATER V6.22                                                      01/10/2019  08:14:39  PAGE 5
+  C:0658H         LINE#         140
+  C:0658H         LINE#         141
+  C:065BH         LINE#         142
+  C:065DH         LINE#         143
+  C:0660H         LINE#         144
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/11/2019  15:16:07  PAGE 5
 
 
-  C:06B6H         LINE#         144
-  C:06B8H         LINE#         145
-  C:06BBH         LINE#         146
+  C:066FH         LINE#         145
   -------         ENDPROC       MAIN
   -------         ENDMOD        WAVEFORM_TWO
 
@@ -275,5 +273,5 @@ SYMBOL TABLE OF MODULE:  waveform_two (WAVEFORM_TWO)
   C:01F0H         PUBLIC        ?C?LNEG
   -------         ENDMOD        ?C?LNEG
 
-Program Size: data=35.0 xdata=0 code=1720
+Program Size: data=37.0 xdata=0 code=1656
 LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
